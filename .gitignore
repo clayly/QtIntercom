@@ -1,3 +1,9 @@
+# common
+/build
+/ios/CocoaPods/Pods
+asset_catalog_compiler.Info.plist
+Podfile.lock
+
 # C++ objects and libs
 *.slo
 *.lo
@@ -5,7 +11,7 @@
 *.a
 *.la
 *.lai
-*.so
+# *.so
 *.dll
 *.dylib
 
