@@ -16,7 +16,6 @@ IOSIntercom::~IOSIntercom()
 
 void IOSIntercom::initialize()
 {
-    
     [Intercom setApiKey:@"your-api-key" forAppId:@"your-app-id"];
     [Intercom registerUnidentifiedUser];
     [Intercom enableLogging];
