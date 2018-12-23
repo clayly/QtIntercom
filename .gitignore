@@ -1,7 +1,8 @@
 # common
 /build
 /ios/CocoaPods/Pods
-asset_catalog_compiler.Info.plist
+/src/BHealth.app
+/src/asset_catalog_compiler.Info.plist
 Podfile.lock
 
 # C++ objects and libs

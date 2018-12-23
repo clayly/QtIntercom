@@ -29,6 +29,7 @@ IOS_DIR = $$PWD/../ios
 
 ios: {
     QMAKE_IOS_DEPLOYMENT_TARGET = 11.0
+    QMAKE_APPLE_TARGETED_DEVICE_FAMILY = 1,2
 
     XCODE_CLANG_ENABLE_OBJC_WEAK.name = CLANG_ENABLE_OBJC_WEAK
     XCODE_CLANG_ENABLE_OBJC_WEAK.value = YES
@@ -40,7 +41,10 @@ ios: {
 
     QMAKE_CXXFLAGS += \
         -fmodules \
-        -fcxx-modules
+        -fcxx-modules \
+
+    QMAKE_LFLAGS += \
+        -ObjC
 
     COCOAPODS_ROOT = $$IOS_DIR/CocoaPods/Pods
 
@@ -50,10 +54,11 @@ ios: {
     OBJECTIVE_SOURCES += \
         $$PWD/iosintercom.mm
 
-    LIBS += -framework UIKit \
-            -framework HealthKit \
-            -framework CoreLocation \
-            -framework Foundation
+    LIBS += \
+        -framework UIKit \
+        -framework HealthKit \
+        -framework CoreLocation \
+        -framework Foundation
 
     QMAKE_TARGET_BUNDLE_PREFIX="tech.biolink"
     QMAKE_BUNDLE="BHealth.zva"
