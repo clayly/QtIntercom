@@ -1,7 +1,5 @@
-platform :ios, '11.0'
-
 project 'EmptyProject'
 
 target :EmptyProject do
-    pod 'Intercom', '~> 5.1.10'
+    pod 'Intercom'
 end

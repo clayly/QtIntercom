@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = BHealth
-QT += core gui qml quick widgets network
+QT += core gui qml quick widgets
 CONFIG += qt c++14
 
 HEADERS += \
@@ -28,9 +28,6 @@ IOS_DIR = $$PWD/../ios
 }
 
 ios: {
-    QMAKE_IOS_DEPLOYMENT_TARGET = 11.0
-    QMAKE_APPLE_TARGETED_DEVICE_FAMILY = 1,2
-
     XCODE_CLANG_ENABLE_OBJC_WEAK.name = CLANG_ENABLE_OBJC_WEAK
     XCODE_CLANG_ENABLE_OBJC_WEAK.value = YES
     QMAKE_MAC_XCODE_SETTINGS += XCODE_CLANG_ENABLE_OBJC_WEAK
@@ -55,13 +52,11 @@ ios: {
         $$PWD/iosintercom.mm
 
     LIBS += \
-        -framework UIKit \
-        -framework HealthKit \
-        -framework CoreLocation \
+        -framework UIKit
         -framework Foundation
 
-    QMAKE_TARGET_BUNDLE_PREFIX="tech.biolink"
-    QMAKE_BUNDLE="BHealth.zva"
+    QMAKE_TARGET_BUNDLE_PREFIX="your.prefix"
+    QMAKE_BUNDLE="your.bundle"
     VERSION=$$VERSION
     QMAKE_INFO_PLIST = $$IOS_DIR/Info.plist
 
@@ -69,7 +64,6 @@ ios: {
     QMAKE_ASSET_CATALOGS_APP_ICON = "AppIcon"
     QMAKE_ASSET_CATALOGS_LAUNCH_IMAGE = "LaunchImage"
 
-    # https://bugreports.qt.io/browse/QTBUG-55975
     MY_ENTITLEMENTS.name = CODE_SIGN_ENTITLEMENTS
     MY_ENTITLEMENTS.value = $$IOS_DIR/QtIntercom.entitlements
     QMAKE_MAC_XCODE_SETTINGS += MY_ENTITLEMENTS
